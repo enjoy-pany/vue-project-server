@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test node-mysql</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<form>
+		s_id:<input id='s_id' type="text" name="">
+		id:<input id='id' type="text" name="">
+		<button id='btn' type='button'>提交</button>
+	</form>
+</body>
+<script type="text/javascript">
+	var _sId = document.getElementById('s_id');
+	var _id = document.getElementById('id');
+	var _btn = document.getElementById('btn');
+	var postData = {
+	    "s_id": _sId,
+	    "_id": _id};
+	 
+	postData = (function(obj){ // 转成post需要的字符串.
+	    var str = "";
+	 
+	    for(var prop in obj){
+	        str += prop + "=" + obj[prop] + "&"
+	    }
+	    return str;
+	})(postData);
+	_btn.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost:3000/users/updateUser", true);
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function(){
+		    var XMLHttpReq = xhr;
+		    if (XMLHttpReq.readyState == 4) {
+		        if (XMLHttpReq.status == 200) {
+		            var text = XMLHttpReq.responseText;
+		 
+		            console.log(text);
+		        }
+		    }
+		};
+		xhr.send(postData);
+	}
+</script>
+</html>
