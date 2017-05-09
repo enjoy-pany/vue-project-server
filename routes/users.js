@@ -17,6 +17,9 @@ router.get('/queryByUser', function(req, res, next) {
 router.get('/queryByTeacher', function(req, res, next) {
 	userContr.queryByTeacher(req, res, next);
 });
+router.get('/login', function(req, res, next) {
+    userContr.login(req, res, next);
+});
 router.post('/userInfo', function(req, res, next) {
     userContr.add(req, res, next);
 });

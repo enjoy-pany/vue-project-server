@@ -4,7 +4,8 @@ var user = {
 	queryByUser: 'select id from user where user_name = ?',
 	queryByTeacher: 'select id from teacher where user_name = ?',
 	insert:'INSERT INTO user_info(account, name, email, password, confirmPassword, imageUrl, description) VALUES(?,?,?,?,?,?,?)',
-	//delete: 'delete from user where id=?',
+	login: 'select * from user_info where account = ?',
+    //delete: 'delete from user where id=?',
 };
 
 module.exports = user;

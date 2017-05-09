@@ -90,5 +90,13 @@ module.exports = {
 				connection.release();
 			});
 		});
+	},
+	login: function (req, res, next) {
+		pool.getConnection(function(err, connection) {
+			connection.query($sql.login,req.query.account, function(err, result) {
+				jsonWrite(res, result);
+				connection.release();
+			});
+		});
 	}
 };
