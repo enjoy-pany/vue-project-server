@@ -23,4 +23,7 @@ router.get('/login', function(req, res, next) {
 router.post('/userInfo', function(req, res, next) {
     userContr.add(req, res, next);
 });
+router.get('/getCharsData', function(req, res, next) {
+    userContr.getCharsData(req, res, next);
+});
 module.exports = router;

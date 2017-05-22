@@ -98,5 +98,9 @@ module.exports = {
 				connection.release();
 			});
 		});
+	},
+	getCharsData: function(req, res, next){
+		var data = {'name':'pany'};
+		jsonWrite(res,data)
 	}
 };
