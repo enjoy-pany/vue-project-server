@@ -100,7 +100,11 @@ module.exports = {
 		});
 	},
 	getCharsData: function(req, res, next){
-		var data = {'name':'pany'};
-		jsonWrite(res,data)
+		pool.getConnection(function(err, connection) {
+			connection.query($sql.queryCrawler, function(err, result) {
+				jsonWrite(res, result);
+				connection.release();
+			});
+		});
 	}
 };

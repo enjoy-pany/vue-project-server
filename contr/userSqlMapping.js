@@ -5,6 +5,7 @@ var user = {
 	queryByTeacher: 'select id from teacher where user_name = ?',
 	insert:'INSERT INTO user_info(account, name, email, password, confirmPassword, imageUrl, description) VALUES(?,?,?,?,?,?,?)',
 	login: 'select * from user_info where account = ?',
+    queryCrawler: 'select * from crawler',
     //delete: 'delete from user where id=?',
 };
 
